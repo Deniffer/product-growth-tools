@@ -11,8 +11,8 @@
     "directory": "packages/gsc-cli"
   },
   "bin": {
-    "gsc": "./index.ts",
-    "gsc-cli": "./index.ts"
+    "gsc": "bin/gsc-cli.js",
+    "gsc-cli": "bin/gsc-cli.js"
   },
   "files": [
     "index.ts",
@@ -20,6 +20,7 @@
     "services.ts",
     "schema.ts",
     "output.ts",
+    "bin",
     "handlers",
     "lib",
     "!**/*.test.ts",
