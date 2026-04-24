@@ -1,0 +1,33 @@
+# gsc-cli/
+> L2 | 父级: ../../AGENTS.md
+
+成员清单
+index.ts: argc-powered Google Search Console CLI entry point
+schema.ts: schema-first GSC command contract and global flags
+client.ts: env loading, auth resolution, and typed GSC client factory
+services.ts: lazy service container for GSC client and output
+output.ts: JSON-first output helpers with optional pretty rendering
+schema.test.ts: CLI schema discovery coverage
+client.test.ts: auth and default resolution coverage
+output.test.ts: output error-contract coverage for JSON and pretty modes
+lib/errors.test.ts: provider error classification coverage
+lib/input-validation.test.ts: shared input validation coverage
+handlers/
+  inspection.ts: URL inspection entity handler for raw inspection reads
+  property.ts: property dataset handlers for accessible site inventory
+  sitemap.ts: sitemap dataset and entity handlers for raw sitemap reads
+  search.ts: search analytics dataset handler for raw Search Console reads
+lib/
+  command-support.ts: shared command wrapper for stable error rendering
+  errors.ts: shared machine-classified CLI error contract and helpers
+  input-validation.ts: shared input validators and normalizers for provider calls
+  schema-selector.ts: local schema selector compatibility layer for focused schema discovery
+  search-analytics.ts: request parsing and filter normalization helpers
+
+运行约定
+- provider-only: 只暴露 GSC 官方只读数据，不在此处增加存储、同步、报表或 SEO 解释层
+- 输出契约: 默认 JSON，`--pretty` 只做人类可读渲染，不改变数据语义
+- 本地凭证: 服务账号 JSON 放在 `credentials/*.json`，保持 gitignored
+- 本地环境: `packages/gsc-cli/.env.local` 可设置 `GOOGLE_APPLICATION_CREDENTIALS` 或 `GSC_CREDENTIALS_FILE`
+
+[PROTOCOL]: 变更时更新此头部，然后检查 AGENTS.md

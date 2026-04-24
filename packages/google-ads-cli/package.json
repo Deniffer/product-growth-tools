@@ -1,0 +1,56 @@
+{
+  "name": "@deniffer/google-ads-cli",
+  "version": "0.1.0",
+  "description": "Google Ads raw-data CLI for product growth and paid search workflows.",
+  "type": "module",
+  "sideEffects": false,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Deniffer/product-growth-tools.git",
+    "directory": "packages/google-ads-cli"
+  },
+  "bin": {
+    "google-ads": "./index.ts",
+    "google-ads-cli": "./index.ts"
+  },
+  "files": [
+    "index.ts",
+    "client.ts",
+    "services.ts",
+    "schema.ts",
+    "output.ts",
+    "handlers",
+    "lib",
+    "provider",
+    "!**/*.test.ts",
+    "!**/__pycache__",
+    "!**/*.pyc",
+    "requirements.txt",
+    "AGENTS.md",
+    "README.md"
+  ],
+  "scripts": {
+    "google-ads": "bun run ./index.ts",
+    "cli": "bun run ./index.ts",
+    "cli:schema": "bun run google-ads --schema",
+    "check-types": "tsc --noEmit",
+    "provider:install": "python3 -m venv .venv && .venv/bin/python -m pip install -r ./requirements.txt",
+    "test": "vitest",
+    "test:once": "vitest run"
+  },
+  "dependencies": {
+    "@standard-schema/spec": "^1.0.0",
+    "@valibot/to-json-schema": "^1.6.0",
+    "argc": "github:ethan-huo/argc",
+    "dotenv": "^17.2.2",
+    "valibot": "^1.2.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.10",
+    "@types/node": "^25.6.0",
+    "bun-types": "^1.3.13",
+    "typescript": "^5",
+    "vitest": "^4.0.18"
+  }
+}
